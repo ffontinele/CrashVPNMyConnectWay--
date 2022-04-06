@@ -9,16 +9,14 @@ IP = '0.0.0.0'
 try:
    PORT = int(sys.argv[1])
 except:
-   PORT = 80
+   PORT = 8080
 PASS = ''
 BUFLEN = 8196 * 8
 TIMEOUT = 60
 MSG = 'SSHPLUS'
-COR = '<font color="null">'
-FTAG = '</font>'
-DEFAULT_HOST = '0.0.0.0:22'
-RESPONSE = "HTTP/1.1 200 " + str(COR) + str(MSG) + str(FTAG) + "\r\n\r\n"
- 
+DEFAULT_HOST = '0.0.0.0:1194'
+RESPONSE = "HTTP/1.1 200 " + str(MSG) + "\r\n\r\n"
+
 class Server(threading.Thread):
     def __init__(self, host, port):
         threading.Thread.__init__(self)
