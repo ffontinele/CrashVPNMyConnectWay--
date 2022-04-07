@@ -1,3 +1,0 @@
-cd /etc && wget http://myconnectway.com.br/backupvps/restartiptables.sh && chmod +x restartiptables.sh
-
-cd /etc && wget http://myconnectway.com.br/backupvps/rc.local && chmod +x rc.local
