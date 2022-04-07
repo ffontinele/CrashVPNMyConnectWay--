@@ -1606,56 +1606,56 @@ exit 0' >$RCLOCAL
 			[[ ! -e '/home/CrashVPN' ]] && exit 0
 			clear
 			echo -e "\E[44;1;37m                MODO DE CONEXAO                 \E[0m\n"
-			echo -e "\033[1;32mSERVICO: \033[1;33mOPENSSH \033[1;32mPORTA: \033[1;37m$(grep 'Port' /etc/ssh/sshd_config | cut -d' ' -f2 | grep -v 'no' | xargs)" && sts6="\033[1;32m‹ "
+			echo -e "\033[1;32mSERVICO: \033[1;33mOPENSSH \033[1;32mPORTA: \033[1;37m$(grep 'Port' /etc/ssh/sshd_config | cut -d' ' -f2 | grep -v 'no' | xargs)" && sts6="\033[1;32m◉ "
 
 			[[ "$(netstat -tlpn | grep 'sslh' | wc -l)" != '0' ]] && {
 				echo -e "\033[1;32mSERVICO: \033[1;33mSSLH: \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'sslh' | awk {'print $4'} | cut -d: -f2 | xargs)"
-				sts7="\033[1;32m‹ "
+				sts7="\033[1;32m◉ "
 			} || {
-				sts7="\033[1;31m‹ "
+				sts7="\033[1;31m○ "
 			}
 
 			[[ "$(netstat -tlpn | grep 'openvpn' | wc -l)" != '0' ]] && {
 				echo -e "\033[1;32mSERVICO: \033[1;33mOPENVPN: \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'openvpn' | awk {'print $4'} | cut -d: -f2 | xargs)"
-				sts5="\033[1;32m‹ "
+				sts5="\033[1;32m◉ "
 			} || {
-				sts5="\033[1;31m‹ "
+				sts5="\033[1;31m○ "
 			}
 
 			[[ "$(netstat -tlpn | grep 'python' | wc -l)" != '0' ]] && {
 				echo -e "\033[1;32mSERVICO: \033[1;33mPROXY SOCKS \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'python' | awk {'print $4'} | cut -d: -f2 | xargs)"
-				sts4="\033[1;32m‹ "
+				sts4="\033[1;32m◉ "
 			} || {
-				sts4="\033[1;31m‹ "
+				sts4="\033[1;31m○ "
 			}
 			[[ -e "/etc/stunnel/stunnel.conf" ]] && {
 				echo -e "\033[1;32mSERVICO: \033[1;33mSSL TUNNEL \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'stunnel' | awk {'print $4'} | cut -d: -f2 | xargs)"
-				sts3="\033[1;32m‹ "
+				sts3="\033[1;32m◉ "
 			} || {
-				sts3="\033[1;31m‹ "
+				sts3="\033[1;31m○ "
 			}
 			[[ "$(netstat -tlpn | grep 'dropbear' | wc -l)" != '0' ]] && {
 				echo -e "\033[1;32mSERVICO: \033[1;33mDROPBEAR \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'dropbear' | awk -F ":" {'print $4'} | xargs)"
-				sts2="\033[1;32m‹ "
+				sts2="\033[1;32m◉ "
 			} || {
-				sts2="\033[1;31m‹ "
+				sts2="\033[1;31m○ "
 			}
 			[[ "$(netstat -tlpn | grep 'squid' | wc -l)" != '0' ]] && {
 				echo -e "\033[1;32mSERVICO: \033[1;33mSQUID \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'squid' | awk -F ":" {'print $4'} | xargs)"
-				sts1="\033[1;32m‹ "
+				sts1="\033[1;32m◉ "
 			} || {
-				sts1="\033[1;31m‹ "
+				sts1="\033[1;31m○ "
 			}
-			echo -e "\033[0;34m=================================================================================================\033[0m"
+			echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 			echo ""
-			echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m \033[1;33mOPENSSH $sts6\033[1;31m
-[\033[1;36m02\033[1;31m] \033[1;37m \033[1;33mSQUID PROXY $sts1\033[1;31m
-[\033[1;36m03\033[1;31m] \033[1;37m \033[1;33mDROPBEAR $sts2\033[1;31m
-[\033[1;36m04\033[1;31m] \033[1;37m \033[1;33mOPENVPN $sts5\033[1;31m
-[\033[1;36m05\033[1;31m] \033[1;37m \033[1;33mPROXY SOCKS $sts4\033[1;31m
-[\033[1;36m06\033[1;31m] \033[1;37m \033[1;33mSSL TUNNEL $sts3\033[1;31m
-[\033[1;36m07\033[1;31m] \033[1;37m \033[1;33mVOLTAR \033[1;32m<\033[1;33m<\033[1;31m< \033[1;31m
-[\033[1;36m00\033[1;31m] \033[1;37m \033[1;33mSAIR \033[1;32m<\033[1;33m<\033[1;31m< \033[0m"
+			echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mOPENSSH $sts6\033[1;31m
+[\033[1;36m02\033[1;31m] \033[1;37m• \033[1;33mSQUID PROXY $sts1\033[1;31m
+[\033[1;36m03\033[1;31m] \033[1;37m• \033[1;33mDROPBEAR $sts2\033[1;31m
+[\033[1;36m04\033[1;31m] \033[1;37m• \033[1;33mOPENVPN $sts5\033[1;31m
+[\033[1;36m05\033[1;31m] \033[1;37m• \033[1;33mPROXY SOCKS $sts4\033[1;31m
+[\033[1;36m06\033[1;31m] \033[1;37m• \033[1;33mSSL TUNNEL $sts3\033[1;31m
+[\033[1;36m07\033[1;31m] \033[1;37m• \033[1;33mVOLTAR \033[1;32m<\033[1;33m<\033[1;31m< \033[1;31m
+[\033[1;36m00\033[1;31m] \033[1;37m• \033[1;33mSAIR \033[1;32m<\033[1;33m<\033[1;31m< \033[0m"
 			echo ""
 			echo -e "\033[0;34m=================================================================================================\033[0m"
 			echo ""
