@@ -17,17 +17,17 @@ echo ""
     clear
     echo -e "\n\033[0;34m================================================================\033[0m"
     echo ""
-	echo -e "                 \033[1;33mâ€¢ \033[1;31mATENCAO \033[1;33mâ€¢ \033[0m"
+	echo -e "                 \033[1;33m=== \033[1;31mATENCAO \033[1;33m=== \033[0m"
 	echo ""
-    echo -e "\033[1;33mUma base de Dados de UsuÃ¡rios \033[1;32m(usuarios.db) \033[1;33mFoi" 
-    echo -e "Encontrada! Deseja mantÃª-la preservando o limite"
-	echo -e "de ConexÃµes simutaneas dos usuÃ¡rios ? Ou Deseja"
+    echo -e "\033[1;33mUma base de Dados de Usuarios \033[1;32m(usuarios.db) \033[1;33mFoi" 
+    echo -e "Encontrada! Deseja mante-la preservando o limite"
+	echo -e "de Conexoes simutaneas dos usuarios ? Ou Deseja"
     echo -e "criar uma nova base de dados ?\033[0m"
 	echo -e "\n\033[1;37m[\033[1;31m1\033[1;37m] \033[1;33mManter Base de Dados Atual\033[0m"
 	echo -e "\033[1;37m[\033[1;31m2\033[1;37m] \033[1;33mCriar uma Nova Base de Dados\033[0m"
 	echo -e "\n\033[0;34m============================================================\033[0m"
     echo ""
-	tput setaf 2 ; tput bold ; read -p "OpÃ§Ã£o ?: " -e -i 1 optiondb ; tput sgr0
+	tput setaf 2 ; tput bold ; read -p "Opcao ?: " -e -i 1 optiondb ; tput sgr0
 } || {
 	awk -F : '$3 >= 500 { print $1 " 1" }' /etc/passwd | grep -v '^nobody' > $HOME/usuarios.db
 }
@@ -44,7 +44,7 @@ clear
 echo ""
 echo -e "          \033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mINSTALANDO PACOTES \033[1;33m[\033[1;31m!\033[1;33m] \033[0m"
 echo ""
-echo -e "\033[1;33mALGUNS PACOTES SAO EXTREMAMENTE  NECESSÃRIOS !\033[0m"
+echo -e "\033[1;33mALGUNS PACOTES SAO EXTREMAMENTE  NECESSARIOS !\033[0m"
 echo ""
 inst_pct () {
 apt install bc -y 
@@ -72,7 +72,7 @@ clear
 echo ""
 echo -e "              \033[1;33m[\033[1;31m!\033[1;33m] \033[1;32mFINALIZANDO \033[1;33m[\033[1;31m!\033[1;33m] \033[0m"
 echo ""
-echo -e "      \033[1;33mCONCLUINDO FUNÃ‡Ã•ES E DEFINIÃ‡Ã•ES! \033[0m"
+echo -e "      \033[1;33mCONCLUINDO FUNCOES E DEFINICOES! \033[0m"
 echo ""
 ./list
 rm crashvpn* > /dev/null 2>&1
@@ -83,7 +83,7 @@ wget https://raw.githubusercontent.com/ffontinele/CrashVPNMyConnectWay--/main/ve
 clear
 echo ""
 cd $HOME
-echo -e "        \033[1;33m â€¢ \033[1;32mINSTALACAO CONCLUIDA\033[1;33m â€¢ \033[0m"
+echo -e "        \033[1;33m === \033[1;32mINSTALACAO CONCLUIDA\033[1;33m === \033[0m"
 echo ""
 echo -e "\033[1;31m \033[1;33mCOMANDO PRINCIPAL: \033[1;32mmenu\033[0m"
 echo -e "\033[1;33m MAIS INFORMACOES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@CrashVPN\033[0m"
