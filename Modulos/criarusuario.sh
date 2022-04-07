@@ -262,24 +262,24 @@ echo -ne "\033[1;32mNome do usuÃ¡rio:\033[1;37m ";read username
 	exit 1
 }
 [[ "$(grep -wc $username /etc/passwd)" != '0' ]] && {
-	echo -e "\n${cor1}Este usuÃ¡rio jÃ¡ existe. tente outro nome!${scor}\n"
+	echo -e "\n${cor1}Este usuario ja existe. tente outro nome!${scor}\n"
 	exit 1
 }
 [[ ${username} != ?(+|-)+([a-zA-Z0-9]) ]] && {
-	echo -e "\n${cor1}VocÃª digitou um nome de usuÃ¡rio invÃ¡lido!${scor}"
-	echo -e "${cor1}NÃ£o use espaÃ§os, acentos ou caracteres especiais!${scor}\n"
+	echo -e "\n${cor1}Voce digitou um nome de usuario invalido!${scor}"
+	echo -e "${cor1}Nao use espassos, acentos ou caracteres especiais!${scor}\n"
 	exit 1
 }
 sizemin=$(echo ${#username})
 [[ $sizemin -lt 2 ]] && {
-	echo -e "\n${cor1}VocÃª digitou um nome de usuÃ¡rio muito curto${scor}"
-	echo -e "${cor1}use no mÃ­nimo dois caracteres!${scor}\n"
+	echo -e "\n${cor1}Voce digitou um nome de usuario muito curto${scor}"
+	echo -e "${cor1}use no maximo dois caracteres!${scor}\n"
 	exit 1
 }
 sizemax=$(echo ${#username})
 [[ $sizemax -gt 10 ]] && {
 	echo -e "\n${cor1}VocÃª digitou um nome de usuÃ¡rio muito grande"
-	echo -e "${cor1}use no mÃ¡ximo 10 caracteres!${scor}\n"
+	echo -e "${cor1}use no maximo 10 caracteres!${scor}\n"
 	exit 1
 }
 echo -ne "\033[1;32mSenha:\033[1;37m ";read password
@@ -289,7 +289,7 @@ echo -ne "\033[1;32mSenha:\033[1;37m ";read password
 }
 sizepass=$(echo ${#password})
 [[ $sizepass -lt 4 ]] && {
-	echo -e "\n${cor1}Senha curta!, use no mÃ­nimo 4 caracteres${scor}\n"
+	echo -e "\n${cor1}Senha curta!, use no maximo 4 caracteres${scor}\n"
 	exit 1
 }
 echo -ne "\033[1;32mDias para expirar:\033[1;37m ";read dias
@@ -298,24 +298,24 @@ echo -ne "\033[1;32mDias para expirar:\033[1;37m ";read dias
 	exit 1
 }
 [[ ${dias} != ?(+|-)+([0-9]) ]] && {
-	echo -e "\n${cor1}VocÃª digitou um nÃºmero de dias invÃ¡lido!${scor}\n"
+	echo -e "\n${cor1}Voce digitou um numero de dias invalido!${scor}\n"
 	exit 1
 }
 [[ $dias -lt 1 ]] && {
-	echo -e "\n${cor1}O nÃºmero deve ser maior que zero!${scor}\n"
+	echo -e "\n${cor1}O numero deve ser maior que zero!${scor}\n"
 	exit 1
 }
-echo -ne "\033[1;32mLimite de conexÃµes:\033[1;37m ";read sshlimiter
+echo -ne "\033[1;32mLimite de conexoes:\033[1;37m ";read sshlimiter
 [[ -z $sshlimiter ]] && {
-	echo -e "\n${cor1}VocÃª deixou o limite de conexÃµes vazio!${scor}\n"
+	echo -e "\n${cor1}Voce deixou o limite de conexoes vazio!${scor}\n"
 	exit 1
 }
 [[ ${sshlimiter} != ?(+|-)+([0-9]) ]] && {
-	echo -e "\n${cor1}VocÃª digitou um nÃºmero de conexÃµes invÃ¡lido!${scor}\n"
+	echo -e "\n${cor1}Voce digitou um numero de conexoes invalido!${scor}\n"
 	exit 1
 }
 [[ $sshlimiter -lt 1 ]] && {
-	echo -e "\n${cor1}NÃºmero de conexÃµes simultÃ¢neas deve ser maior que zero!${scor}\n"
+	echo -e "\n${cor1}Numero de conexoes simultaneas deve ser maior que zero!${scor}\n"
 	exit 1
 }
 final=$(date "+%Y-%m-%d" -d "+$dias days")
@@ -348,7 +348,7 @@ echo "$username $sshlimiter" >>/root/usuarios.db
 		echo -e "\033[1;32mUsuÃ¡rio: \033[1;37m$username"
 		echo -e "\033[1;32mSenha: \033[1;37m$password"
 		echo -e "\033[1;32mExpira em: \033[1;37m$gui"
-		echo -e "\033[1;32mLimite de conexÃµes: \033[1;37m$sshlimiter"
+		echo -e "\033[1;32mLimite de conexoes: \033[1;37m$sshlimiter"
 		sleep 1
 		function aguarde() {
 			helice() {
@@ -388,7 +388,7 @@ echo "$username $sshlimiter" >>/root/usuarios.db
 		echo -e "\033[1;32mUsuÃ¡rio: \033[1;37m$username"
 		echo -e "\033[1;32mSenha: \033[1;37m$password"
 		echo -e "\033[1;32mExpira em: \033[1;37m$gui"
-		echo -e "\033[1;32mLimite de conexÃµes: \033[1;37m$sshlimiter"
+		echo -e "\033[1;32mLimite de conexoes: \033[1;37m$sshlimiter"
 	}
 } || {
 	clear
@@ -397,5 +397,5 @@ echo "$username $sshlimiter" >>/root/usuarios.db
 	echo -e "\033[1;32mUsuÃ¡rio: \033[1;37m$username"
 	echo -e "\033[1;32mSenha: \033[1;37m$password"
 	echo -e "\033[1;32mExpira em: \033[1;37m$gui"
-	echo -e "\033[1;32mLimite de conexÃµes: \033[1;37m$sshlimiter"
+	echo -e "\033[1;32mLimite de conexoes: \033[1;37m$sshlimiter"
 }
