@@ -614,7 +614,7 @@ pipeline_prefetch off" >>$var_sqd
 
 	fun_openvpn() {
 		if readlink /proc/$$/exe | grep -qs "dash"; then
-			echo "Este script precisa ser executado com bash, nÃ£o sh"
+			echo "Este script precisa ser executado com bash, nao sh"
 			exit 1
 		fi
 		[[ "$EUID" -ne 0 ]] && {
@@ -628,7 +628,7 @@ pipeline_prefetch off" >>$var_sqd
 			exit 3
 		}
 		if grep -qs "CentOS release 5" "/etc/redhat-release"; then
-			echo "O CentOS 5 Ã© muito antigo e nÃ£o Ã© suportado"
+			echo "O CentOS 5 muito antigo e nao e suportado"
 			exit 4
 		fi
 		if [[ -e /etc/debian_version ]]; then
