@@ -1,5 +1,5 @@
 #!/bin/bash
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%33s%s%-12s\n' "Mudar data de expiraÃ§Ã£o" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%33s%s%-12s\n' "Mudar data de expiracao" ; tput sgr0
 echo ""
 echo -e "\033[1;33m LISTA DE USUARIOS E DATA DE EXPIRACAO:\033[0m "
 echo ""
@@ -47,14 +47,14 @@ echo -ne "\033[1;32mDigite ou selecione um usuario \033[1;33m[\033[1;36m1\033[1;
 if [[ -z $option ]]
 then
 	echo ""
-	tput setaf 7 ; tput setab 1 ; tput bold ; echo "Erro,  Nome de usuÃ¡rio vazio ou invÃ¡lido! " ; tput sgr0
+	tput setaf 7 ; tput setab 1 ; tput bold ; echo "Erro,  Nome de usuario vazio ou invalido! " ; tput sgr0
 	exit 1
 fi
 usuario=$(echo -e "${_userPass}" | grep -E "\b$option\b" | cut -d: -f2)
 if [[ -z $usuario ]]
 then
 	echo ""
-	tput setaf 7 ; tput setab 1 ; tput bold ; echo "Erro,  Nome de usuÃ¡rio vazio ou invÃ¡lido!!! " ; tput sgr0
+	tput setaf 7 ; tput setab 1 ; tput bold ; echo "Erro,  Nome de usuario vazio ou invalido!!! " ; tput sgr0
 	echo ""
 	exit 1
 else
@@ -76,7 +76,7 @@ else
 			if [[ -z $inputdate ]]
 			then
 				echo ""
-				tput setaf 7 ; tput setab 1 ; tput bold ;	echo "VocÃª digitou uma data invÃ¡lida ou inexistente!" ; echo "Digite uma data vÃ¡lida no formato DIA/MÃŠS/ANO " ; echo "Por exemplo: 21/04/2018" ; tput sgr0 ; tput sgr0
+				tput setaf 7 ; tput setab 1 ; tput bold ;	echo "Voce digitou uma data invalida ou inexistente!" ; echo "Digite uma data valida no formato DIA/MES/ANO " ; echo "Por exemplo: 21/04/2018" ; tput sgr0 ; tput sgr0
 				echo ""
 				exit 1	
 			else
@@ -87,32 +87,32 @@ else
 					if [ $today -ge $timemachine ]
 					then
 						echo ""
-						tput setaf 7 ; tput setab 1 ; tput bold ;	echo "VocÃª digitou uma data passada ou o dia atual!" ; echo "Digite uma data futura e vÃ¡lida no formato DIA/MÃŠS/ANO" ; echo "Por exemplo: 21/04/2018" ; tput sgr0
+						tput setaf 7 ; tput setab 1 ; tput bold ;	echo "Voce digitou uma data passada ou o dia atual!" ; echo "Digite uma data futura e valida no formato DIA/MES/ANO" ; echo "Por exemplo: 21/04/2018" ; tput sgr0
 						echo ""
 						exit 1
 					else
 						chage -E $sysdate $usuario
 						echo ""
-						tput setaf 7 ; tput setab 4 ; tput bold ; echo "Sucesso UsuÃ¡rio $usuario nova data: $udata " ; tput sgr0
+						tput setaf 7 ; tput setab 4 ; tput bold ; echo "Sucesso usuario $usuario nova data: $udata " ; tput sgr0
 						echo ""
 						exit 1
 					fi
 				else
 					echo ""
-					tput setaf 7 ; tput setab 1 ; tput bold ;	echo "VocÃª digitou uma data invÃ¡lida ou inexistente!" ; echo "Digite uma data vÃ¡lida no formato DIA/MÃŠS/ANO" ; echo "Por exemplo: 21/04/2018" ; tput sgr0
+					tput setaf 7 ; tput setab 1 ; tput bold ;	echo "Voce digitou uma data invalida ou inexistente!" ; echo "Digite uma data valida no formato DIA/MES/ANO" ; echo "Por exemplo: 21/04/2018" ; tput sgr0
 					echo ""
 					exit 1
 				fi
 			fi
 		else
 			echo ""
-			tput setaf 7 ; tput setab 1 ; tput bold ;	echo "VocÃª digitou uma data invÃ¡lida ou inexistente!" ; echo "Digite uma data vÃ¡lida no formato DIA/MÃŠS/ANO" ; echo "Por exemplo: 21/04/2018" ; tput sgr0
+			tput setaf 7 ; tput setab 1 ; tput bold ;	echo "Voce digitou uma data invalida ou inexistente!" ; echo "Digite uma data valida no formato DIA/MES/ANO" ; echo "Por exemplo: 21/04/2018" ; tput sgr0
 			echo ""
 			exit 1
 		fi
 	else
 		echo " "
-		tput setaf 7 ; tput setab 1 ; tput bold ;	echo "O usuÃ¡rio $usuario nÃ£o existe!" ; tput sgr0
+		tput setaf 7 ; tput setab 1 ; tput bold ;	echo "O usuario $usuario nao existe!" ; tput sgr0
 		echo " "
 		exit 1
 	fi
