@@ -3,7 +3,7 @@ database="/root/usuarios.db"
 echo $$ > /tmp/pids
 if [ ! -f "$database" ]
 then
-	echo "Arquivo /root/usuarios.db nÃ£o encontrado"
+	echo "Arquivo /root/usuarios.db nao encontrado"
 	exit 1
 fi
 while true
