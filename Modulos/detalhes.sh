@@ -4,7 +4,7 @@ echo -e "\E[44;1;37m               INFORMACOES DO VPS                 \E[0m"
 echo ""
 if [ -f /etc/lsb-release ]
 then
-echo -e "\033[1;31mâ€¢ \033[1;32mSISTEMA OPERACIONAL\033[1;31m â€¢\033[0m"
+echo -e "\033[1;31mâ€¢ \033[1;32mSISTEMA OPERACIONAL\033[1;31m ****\033[0m"
 echo ""
 name=$(cat /etc/lsb-release |grep DESCRIPTION |awk -F = {'print $2'})
 codename=$(cat /etc/lsb-release |grep CODENAME |awk -F = {'print $2'})
@@ -20,7 +20,7 @@ echo ""
 fi
 else
 system=$(cat /etc/issue.net)
-echo -e "\033[1;31mâ€¢ \033[1;32mSISTEMA OPERACIONAL\033[1;31m â€¢\033[0m"
+echo -e "\033[1;31**** \033[1;32mSISTEMA OPERACIONAL\033[1;31m ****\033[0m"
 echo ""
 echo -e "\033[1;33mNome: \033[1;37m$system"
 echo ""
@@ -29,7 +29,7 @@ fi
 if [ -f /proc/cpuinfo ]
 then
 uso=$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')
-echo -e "\033[1;31mâ€¢ \033[1;32mPROCESSADOR\033[1;31m â€¢\033[0m"
+echo -e "\033[1;31**** \033[1;32mPROCESSADOR\033[1;31m ****\033[0m"
 echo ""
 modelo=$(cat /proc/cpuinfo |grep "model name" |uniq |awk -F : {'print $2'})
 cpucores=$(grep -c cpu[0-9] /proc/stat)
@@ -43,7 +43,7 @@ echo ""
 else
 echo -e "\033[1;32mPROCESSADOR\033[0m"
 echo ""
-echo "NÃ£o foi possivel obter informaÃ§Ãµes"
+echo "Nao foi possivel obter informacoes"
 fi
 
 if free 1>/dev/null 2>/dev/null
@@ -53,7 +53,7 @@ ram2=$(free -h | grep -i mem | awk {'print $4'})
 ram3=$(free -h | grep -i mem | awk {'print $3'})
 usoram=$(free -m | awk 'NR==2{printf "%.2f%%\t\t", $3*100/$2 }')
 
-echo -e "\033[1;31mâ€¢ \033[1;32mMEMORIA RAM\033[1;31m â€¢\033[0m"
+echo -e "\033[1;31**** \033[1;32mMEMORIA RAM\033[1;31m ****\033[0m"
 echo ""
 echo -e "\033[1;33mTotal: \033[1;37m$ram1"
 echo -e "\033[1;33mEm Uso: \033[1;37m$ram3"
@@ -63,10 +63,10 @@ echo ""
 else
 echo -e "\033[1;32mMEMORIA RAM\033[0m"
 echo ""
-echo "NÃ£o foi possivel obter informaÃ§Ãµes"
+echo "Nao foi possivel obter informacoes"
 fi
 [[ ! -e /bin/versao ]] && rm -rf /etc/CrashVPN
-echo -e "\033[1;31mâ€¢ \033[1;32mSERVICOS EM EXECUCAO\033[1;31m â€¢\033[0m"
+echo -e "\033[1;31**** \033[1;32mSERVICOS EM EXECUCAO\033[1;31m ****\033[0m"
 echo ""
 PT=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
 for porta in `echo -e "$PT" | cut -d: -f2 | cut -d' ' -f1 | uniq`; do
