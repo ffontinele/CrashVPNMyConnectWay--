@@ -1,5 +1,5 @@
 #!/bin/bash
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-10s\n' "Alterar Senha de UsuÃ¡rio" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-10s\n' "Alterar Senha de Usuario" ; tput sgr0
 echo ""
 echo -e "\033[1;33mLISTA DE USUARIOS E SUAS SENHAS: \033[0m"
 echo""
@@ -26,11 +26,11 @@ echo -ne "\033[1;32mDigite ou selecione um usuario \033[1;33m[\033[1;36m1\033[1;
 user=$(echo -e "${_userPass}" | grep -E "\b$option\b" | cut -d: -f2)
 if [[ -z $option ]]
 then
-	tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "Campo vazio ou invÃ¡lido!" ; echo "" ; tput sgr0
+	tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "Campo vazio ou invalido!" ; echo "" ; tput sgr0
 	exit 1
 elif [[ -z $user ]]
 then
-	tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "VocÃª digitou um nome vazio ou invÃ¡lido!" ; echo "" ; tput sgr0
+	tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "Voce digitou um nome vazio ou invalido!" ; echo "" ; tput sgr0
 	exit 1
 else
 	if [[ `grep -c /$user: /etc/passwd` -ne 0 ]]
@@ -39,27 +39,27 @@ else
 		sizepass=$(echo ${#password})
 		if [[ $sizepass -lt 4 ]]
 		then
-			tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "Senha vazio ou invÃ¡lida! use no minimo 4 caracteres" ; echo "" ; tput sgr0
+			tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "Senha vazio ou invalida! use no minimo 4 caracteres" ; echo "" ; tput sgr0
 			exit 1
 		else
 			ps x | grep $user | grep -v grep | grep -v pt > /tmp/rem
 			if [[ `grep -c $user /tmp/rem` -eq 0 ]]
 			then
 				echo "$user:$password" | chpasswd
-				tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "A senha do usuÃ¡rio $user foi alterada para: $password" ; echo "" ; tput sgr0
+				tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "A senha do usuario $user foi alterada para: $password" ; echo "" ; tput sgr0
 				echo "$password" > /etc/CrashVPN/senha/$user
 				exit 1
 			else
 				echo ""
-				tput setaf 7 ; tput setab 4 ; tput bold ; echo "UsuÃ¡rio conectado. Desconectando..." ; tput sgr0
+				tput setaf 7 ; tput setab 4 ; tput bold ; echo "Usuario conectado. Desconectando..." ; tput sgr0
 				pkill -f $user
 				echo "$user:$password" | chpasswd
-				tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "A senha do usuÃ¡rio $user foi alterada para: $password" ; echo "" ; tput sgr0
+				tput setaf 7 ; tput setab 1 ; tput bold ; echo "" ; echo "A senha do usuario $user foi alterada para: $password" ; echo "" ; tput sgr0
 				echo "$password" > /etc/CrashVPN/senha/$user
 				exit 1
 			fi
 		fi
 	else
-		tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "O usuÃ¡rio $user nÃ£o existe!" ; echo "" ; tput sgr0
+		tput setaf 7 ; tput setab 4 ; tput bold ; echo "" ; echo "O usuario $user nao existe!" ; echo "" ; tput sgr0
 	fi
 fi
