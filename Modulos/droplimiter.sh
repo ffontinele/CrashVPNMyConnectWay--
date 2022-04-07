@@ -35,7 +35,7 @@ done
 } 
 if [ ! -f "$database" ]
 then
-	echo "Arquivo /root/usuarios.db nÃ£o encontrado"
+	echo "Arquivo /root/usuarios.db nao encontrado"
 	exit 1
 fi
 while true
@@ -56,7 +56,7 @@ do
 		    rm /tmp/userpid
 		    tput setaf 3 ; tput bold ; printf '  %-35s%s\n' $user $s3drop/$s2ssh; tput sgr0
 		    if [ "$s3drop" -gt "$s2ssh" ]; then
-		        echo -e "\E[41;1;37m UsuÃ¡rio desconectado por ultrapassar o limite! \E[0m"
+		        echo -e "\E[41;1;37m Usuario desconectado por ultrapassar o limite! \E[0m"
 		        while read line
 		        do
 		           tmp="$(echo $line | cut -d' ' -f1)"
