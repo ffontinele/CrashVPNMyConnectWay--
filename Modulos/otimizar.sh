@@ -39,11 +39,11 @@ echo -e "\033[1;32m               Atualizando pacotes\033[0m"
 echo ""
 fun_bar 'apt-get update -y' 'apt-get upgrade -y'
 echo ""
-echo -e "\033[1;32m      Corrigindo problemas de dependÃªncias"
+echo -e "\033[1;32m      Corrigindo problemas de dependencias"
 echo""
 fun_bar 'apt-get -f install'
 echo""
-echo -e "\033[1;32m            Removendo pacotes inÃºteis"
+echo -e "\033[1;32m            Removendo pacotes inuteis"
 echo ""
 fun_bar 'apt-get autoremove -y' 'apt-get autoclean -y'
 echo ""
@@ -52,7 +52,7 @@ echo ""
 fun_bar 'apt-get -f remove -y' 'apt-get clean -y'
 #Limpar o cache memoria RAM
 clear
-echo -e "\033[1;31mâ”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\033[0m"
+echo -e "\033[1;31m=======================================================================================\033[0m"
 echo ""
 MEM1=$(free | awk '/Mem:/ {print int(100*$3/$2)}')
 ram1=$(free -h | grep -i mem | awk {'print $2'})
@@ -61,14 +61,14 @@ ram3=$(free -h | grep -i mem | awk {'print $3'})
 swap1=$(free -h | grep -i swap | awk {'print $2'})
 swap2=$(free -h | grep -i swap | awk {'print $4'})
 swap3=$(free -h | grep -i swap | awk {'print $3'})
-echo -e "\033[1;31mâ€¢\033[1;32mMemoria RAM\033[1;31mâ€¢\033[0m                    \033[1;31mâ€¢\033[1;32mSwap\033[1;31mâ€¢\033[0m"
+echo -e "\033[1;31m\033[1;32mMemoria RAM\033[1;31m\033[0m                    \033[1;31m\033[1;32mSwap\033[1;31m\033[0m"
 echo -e " \033[1;33mTotal: \033[1;37m$ram1                   \033[1;33mTotal: \033[1;37m$swap1"
 echo -e " \033[1;33mEm Uso: \033[1;37m$ram3                  \033[1;33mEm Uso: \033[1;37m$swap3"
 echo -e " \033[1;33mLivre: \033[1;37m$ram2                   \033[1;33mLivre: \033[1;37m$swap2\033[0m"
 echo ""
-echo -e "\033[1;37mMemÃ³ria \033[1;32mRAM \033[1;37mAntes da Otimizacao:\033[1;36m" $MEM1%
+echo -e "\033[1;37mMemoria \033[1;32mRAM \033[1;37mAntes da Otimizacao:\033[1;36m" $MEM1%
 echo ""
-echo -e "\033[1;31mâ”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\033[0m"
+echo -e "\033[1;31m======================================================================================  \033[0m"
 sleep 2
 echo ""
 fun_limpram() {
@@ -100,7 +100,7 @@ function aguarde() {
 aguarde
 sleep 1
 clear
-echo -e "\033[1;32mâ”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\033[0m"
+echo -e "\033[1;32m===========================================================================================\033[0m"
 echo ""
 MEM2=$(free | awk '/Mem:/ {print int(100*$3/$2)}')
 ram1=$(free -h | grep -i mem | awk {'print $2'})
@@ -109,13 +109,13 @@ ram3=$(free -h | grep -i mem | awk {'print $3'})
 swap1=$(free -h | grep -i swap | awk {'print $2'})
 swap2=$(free -h | grep -i swap | awk {'print $4'})
 swap3=$(free -h | grep -i swap | awk {'print $3'})
-echo -e "\033[1;31mâ€¢\033[1;32mMemoria RAM\033[1;31mâ€¢\033[0m                    \033[1;31mâ€¢\033[1;32mSwap\033[1;31mâ€¢\033[0m"
+echo -e "\033[1;31m\033[1;32mMemoria RAM\033[1;31m\033[0m                    \033[1;31m\033[1;32mSwap\033[1;31m\033[0m"
 echo -e " \033[1;33mTotal: \033[1;37m$ram1                   \033[1;33mTotal: \033[1;37m$swap1"
 echo -e " \033[1;33mEm Uso: \033[1;37m$ram3                  \033[1;33mEm Uso: \033[1;37m$swap3"
 echo -e " \033[1;33mLivre: \033[1;37m$ram2                   \033[1;33mLivre: \033[1;37m$swap2\033[0m"
 echo ""
-echo -e "\033[1;37mMemÃ³ria \033[1;32mRAM \033[1;37mapÃ³s a Otimizacao:\033[1;36m" $MEM2%
+echo -e "\033[1;37mMemoria \033[1;32mRAM \033[1;37mMapas de Otimizacao:\033[1;36m" $MEM2%
 echo ""
 echo -e "\033[1;37mEconomia de :\033[1;31m $(expr $MEM1 - $MEM2)%\033[0m"
 echo ""
-echo -e "\033[1;32mâ”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\033[0m"
+echo -e "\033[1;32m============================================================================================\033[0m"
