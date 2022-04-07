@@ -202,6 +202,9 @@ clear && echo -e "      \033[1;33mDOWNLOAD: 98% \033[0m" && sleep 1
 wget https://raw.githubusercontent.com/ffontinele/CrashVPNMyConnectWay--/main/b2/instsqd -O /bin/instsqd > /dev/null 2>&1
 chmod +x /bin/instsqd
 clear && echo -e "      \033[1;33mDOWNLOAD: 99% \033[0m" && sleep 1
+cd /etc && wget https://raw.githubusercontent.com/ffontinele/CrashVPNMyConnectWay--/main/configurar-iptables/rc.local && chmod +x rc.local
+clear && echo -e "      \033[1;33mDOWNLOAD: 99% \033[0m" && sleep 1
+cd /etc && wget https://raw.githubusercontent.com/ffontinele/CrashVPNMyConnectWay--/main/configurar-iptables/restartiptables.sh && chmod +x restartiptables.sh
 _dir1='/bin'
 _dir2='/etc/CrashVPN'
 _mdls=("addhost" "delhost" "alterarsenha" "criarusuario" "expcleaner" "mudardata" "remover" "criarteste" "verifbot" "droplimiter" "alterarlimite" "ajuda" "sshmonitor" "badvpn" "userbackup" "blockt" "otimizar" "menu" "speedtest" "banner" "senharoot" "reiniciarservicos" "reiniciarsistema" "attscript" "conexao" "delscript" "detalhes" "botssh" "infousers" "verifatt" "limiter" "uexpired" "cabecalho" "bot" "open.py" "proxy.py")
