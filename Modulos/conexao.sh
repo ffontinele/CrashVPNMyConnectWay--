@@ -267,10 +267,10 @@ pipeline_prefetch off" >>$var_sqd
 		} || {
 			VarSqdOn="INSTALAR SQUID PROXY"
 		}
-		echo -e "\n\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37mâ€¢ \033[1;33m$VarSqdOn \033[1;31m
-[\033[1;36m2\033[1;31m] \033[1;37mâ€¢ \033[1;33mADICIONAR PORTA \033[1;31m
-[\033[1;36m3\033[1;31m] \033[1;37mâ€¢ \033[1;33mREMOVER PORTA\033[1;31m
-[\033[1;36m0\033[1;31m] \033[1;37mâ€¢ \033[1;33mVOLTAR\033[0m"
+		echo -e "\n\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m \033[1;33m$VarSqdOn \033[1;31m
+[\033[1;36m2\033[1;31m] \033[1;37m \033[1;33mADICIONAR PORTA \033[1;31m
+[\033[1;36m3\033[1;31m] \033[1;37m \033[1;33mREMOVER PORTA\033[1;31m
+[\033[1;36m0\033[1;31m] \033[1;37m \033[1;33mVOLTAR\033[0m"
 		echo ""
 		echo -ne "\033[1;32mOQUE DESEJA FAZER \033[1;33m?\033[1;31m?\033[1;37m "
 		read x
@@ -303,17 +303,17 @@ pipeline_prefetch off" >>$var_sqd
 			clear
 			[[ $(netstat -nltp | grep -c 'dropbear') != '0' ]] && dpbr=$(netstat -nplt | grep 'dropbear' | awk -F ":" {'print $4'} | xargs) || sqdp="\033[1;31mINDISPONIVEL"
 			if ps x | grep "limiter" | grep -v grep 1>/dev/null 2>/dev/null; then
-				stats='\033[1;32mâ—‰ '
+				stats='\033[1;32m‹ '
 			else
 				stats='\033[1;31mâ—‹ '
 			fi
 			echo -e "\E[44;1;37m              GERENCIAR DROPBEAR               \E[0m"
 			echo -e "\n\033[1;33mPORTAS\033[1;37m: \033[1;32m$dpbr"
 			echo ""
-			echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37mâ€¢ \033[1;33mLIMITER DROPBEAR $stats\033[0m"
-			echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37mâ€¢ \033[1;33mALTERAR PORTA DROPBEAR\033[0m"
-			echo -e "\033[1;31m[\033[1;36m3\033[1;31m] \033[1;37mâ€¢ \033[1;33mREMOVER DROPBEAR\033[0m"
-			echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37mâ€¢ \033[1;33mVOLTAR\033[0m"
+			echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m \033[1;33mLIMITER DROPBEAR $stats\033[0m"
+			echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37m \033[1;33mALTERAR PORTA DROPBEAR\033[0m"
+			echo -e "\033[1;31m[\033[1;36m3\033[1;31m] \033[1;37m \033[1;33mREMOVER DROPBEAR\033[0m"
+			echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37m \033[1;33mVOLTAR\033[0m"
 			echo ""
 			echo -ne "\033[1;32mOQUE DESEJA FAZER \033[1;33m?\033[1;37m "
 			read resposta
@@ -448,10 +448,10 @@ pipeline_prefetch off" >>$var_sqd
 			echo -e "\E[44;1;37m              GERENCIAR SSL TUNNEL               \E[0m"
 			echo -e "\n\033[1;33mPORTAS\033[1;37m: \033[1;32m$sslt"
 			echo ""
-			echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37mâ€¢ \033[1;33mALTERAR PORTA SSL TUNNEL\033[0m"
-			echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37mâ€¢ \033[1;33mREMOVER SSL TUNNEL\033[0m"
-			echo -e "\033[1;31m[\033[1;36m3\033[1;31m] \033[1;37mâ€¢ \033[1;33mAtualizar certificado\033[0m"
-			echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37mâ€¢ \033[1;33mVOLTAR\033[0m"
+			echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m \033[1;33mALTERAR PORTA SSL TUNNEL\033[0m"
+			echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37m \033[1;33mREMOVER SSL TUNNEL\033[0m"
+			echo -e "\033[1;31m[\033[1;36m3\033[1;31m] \033[1;37m \033[1;33mAtualizar certificado\033[0m"
+			echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37m \033[1;33mVOLTAR\033[0m"
 			echo ""
 			echo -ne "\033[1;32mOQUE DESEJA FAZER \033[1;33m?\033[1;37m "
 			read resposta
@@ -675,12 +675,12 @@ pipeline_prefetch off" >>$var_sqd
 
 				opnp=$(cat /etc/openvpn/server.conf | grep "port" | awk {'print $2'})
 				[[ -d /var/www/html/openvpn ]] && {
-					ovpnweb=$(echo -e "\033[1;32mâ—‰ ")
+					ovpnweb=$(echo -e "\033[1;32m‹ ")
 				} || {
 					ovpnweb=$(echo -e "\033[1;31mâ—‹ ")
 				}
 				if grep "duplicate-cn" /etc/openvpn/server.conf >/dev/null; then
-					mult=$(echo -e "\033[1;32mâ—‰ ")
+					mult=$(echo -e "\033[1;32m‹ ")
 				else
 					mult=$(echo -e "\033[1;31mâ—‹ ")
 				fi
@@ -688,12 +688,12 @@ pipeline_prefetch off" >>$var_sqd
 				echo ""
 				echo -e "\033[1;33mPORTA\033[1;37m: \033[1;32m$opnp"
 				echo ""
-				echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37mâ€¢ \033[1;33mALTERAR PORTA"
-				echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37mâ€¢ \033[1;33mREMOVER OPENVPN"
-				echo -e "\033[1;31m[\033[1;36m3\033[1;31m] \033[1;37mâ€¢ \033[1;33mOVPN VIA LINK $ovpnweb"
-				echo -e "\033[1;31m[\033[1;36m4\033[1;31m] \033[1;37mâ€¢ \033[1;33mMULTILOGIN OVPN $mult"
-				echo -e "\033[1;31m[\033[1;36m5\033[1;31m] \033[1;37mâ€¢ \033[1;33mALTERAR HOST DNS"
-				echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37mâ€¢ \033[1;33mVOLTAR"
+				echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m \033[1;33mALTERAR PORTA"
+				echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37m \033[1;33mREMOVER OPENVPN"
+				echo -e "\033[1;31m[\033[1;36m3\033[1;31m] \033[1;37m \033[1;33mOVPN VIA LINK $ovpnweb"
+				echo -e "\033[1;31m[\033[1;36m4\033[1;31m] \033[1;37m \033[1;33mMULTILOGIN OVPN $mult"
+				echo -e "\033[1;31m[\033[1;36m5\033[1;31m] \033[1;37m \033[1;33mALTERAR HOST DNS"
+				echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37m \033[1;33mVOLTAR"
 				echo ""
 				echo -ne "\033[1;32mOQUE DESEJA FAZER \033[1;33m?\033[1;31m?\033[1;37m "
 				read option
@@ -914,10 +914,10 @@ pipeline_prefetch off" >>$var_sqd
 					clear
 					echo -e "\E[44;1;37m         ALTERAR HOST DNS           \E[0m"
 					echo ""
-					echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37mâ€¢ \033[1;33mADICIONAR HOST DNS"
-					echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37mâ€¢ \033[1;33mREMOVER HOST DNS"
-					echo -e "\033[1;31m[\033[1;36m3\033[1;31m] \033[1;37mâ€¢ \033[1;33mEDITAR MANUALMENTE"
-					echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37mâ€¢ \033[1;33mVOLTAR"
+					echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m \033[1;33mADICIONAR HOST DNS"
+					echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37m \033[1;33mREMOVER HOST DNS"
+					echo -e "\033[1;31m[\033[1;36m3\033[1;31m] \033[1;37m \033[1;33mEDITAR MANUALMENTE"
+					echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37m \033[1;33mVOLTAR"
 					echo ""
 					echo -ne "\033[1;32mOQUE DESEJA FAZER \033[1;33m?\033[1;31m?\033[1;37m "
 					read resp
@@ -1290,14 +1290,14 @@ exit 0' >$RCLOCAL
 		} || {
 			sks='\033[1;31mOFF'
 		}
-		[[ $(screen -list | grep -wc 'proxy') != '0' ]] && var_sks1="\033[1;32mâ—‰" || var_sks1="\033[1;31mâ—‹"
-		[[ $(screen -list | grep -wc 'proxy2') != '0' ]] && sksop="\033[1;32mâ—‰" || sksop="\033[1;31mâ—‹"
-		[[ $(screen -list | grep -wc 'proxy3') != '0' ]] && wspro="\033[1;32mâ—‰" || wspro="\033[1;31mâ—‹"
+		[[ $(screen -list | grep -wc 'proxy') != '0' ]] && var_sks1="\033[1;32m‹" || var_sks1="\033[1;31mâ—‹"
+		[[ $(screen -list | grep -wc 'proxy2') != '0' ]] && sksop="\033[1;32m‹" || sksop="\033[1;31mâ—‹"
+		[[ $(screen -list | grep -wc 'proxy3') != '0' ]] && wspro="\033[1;32m‹" || wspro="\033[1;31mâ—‹"
 		echo ""
-		echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37mâ€¢ \033[1;33mSOCKS SSH $var_sks1 \033[0m"
-		echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37mâ€¢ \033[1;33mSOCKS OVPN $sksop \033[0m"
-		echo -e "\033[1;31m[\033[1;36m3\033[1;31m] \033[1;37mâ€¢ \033[1;33mSOCKS WEBSOCKET $wspro \033[0m"
-		echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37mâ€¢ \033[1;33mVOLTAR\033[0m"
+		echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m \033[1;33mSOCKS SSH $var_sks1 \033[0m"
+		echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37m \033[1;33mSOCKS OVPN $sksop \033[0m"
+		echo -e "\033[1;31m[\033[1;36m3\033[1;31m] \033[1;37m \033[1;33mSOCKS WEBSOCKET $wspro \033[0m"
+		echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37m \033[1;33mVOLTAR\033[0m"
 		echo ""
 		echo -ne "\033[1;32mOQUE DESEJA FAZER \033[1;33m?\033[1;37m "
 		read resposta
@@ -1482,9 +1482,9 @@ exit 0' >$RCLOCAL
 	fun_openssh() {
 		clear
 		echo -e "\E[44;1;37m            OPENSSH             \E[0m\n"
-		echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37mâ€¢ \033[1;33mADICIONAR PORTA\033[1;31m
-[\033[1;36m2\033[1;31m] \033[1;37mâ€¢ \033[1;33mREMOVER PORTA\033[1;31m
-[\033[1;36m3\033[1;31m] \033[1;37mâ€¢ \033[1;33mVOLTAR\033[0m"
+		echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m \033[1;33mADICIONAR PORTA\033[1;31m
+[\033[1;36m2\033[1;31m] \033[1;37m \033[1;33mREMOVER PORTA\033[1;31m
+[\033[1;36m3\033[1;31m] \033[1;37m \033[1;33mVOLTAR\033[0m"
 		echo ""
 		echo -ne "\033[1;32mOQUE DESEJA FAZER \033[1;33m?\033[1;37m "
 		read resp
@@ -1606,56 +1606,56 @@ exit 0' >$RCLOCAL
 			[[ ! -e '/home/CrashVPN' ]] && exit 0
 			clear
 			echo -e "\E[44;1;37m                MODO DE CONEXAO                 \E[0m\n"
-			echo -e "\033[1;32mSERVICO: \033[1;33mOPENSSH \033[1;32mPORTA: \033[1;37m$(grep 'Port' /etc/ssh/sshd_config | cut -d' ' -f2 | grep -v 'no' | xargs)" && sts6="\033[1;32mâ—‰ "
+			echo -e "\033[1;32mSERVICO: \033[1;33mOPENSSH \033[1;32mPORTA: \033[1;37m$(grep 'Port' /etc/ssh/sshd_config | cut -d' ' -f2 | grep -v 'no' | xargs)" && sts6="\033[1;32m‹ "
 
 			[[ "$(netstat -tlpn | grep 'sslh' | wc -l)" != '0' ]] && {
 				echo -e "\033[1;32mSERVICO: \033[1;33mSSLH: \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'sslh' | awk {'print $4'} | cut -d: -f2 | xargs)"
-				sts7="\033[1;32mâ—‰ "
+				sts7="\033[1;32m‹ "
 			} || {
 				sts7="\033[1;31mâ—‹ "
 			}
 
 			[[ "$(netstat -tlpn | grep 'openvpn' | wc -l)" != '0' ]] && {
 				echo -e "\033[1;32mSERVICO: \033[1;33mOPENVPN: \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'openvpn' | awk {'print $4'} | cut -d: -f2 | xargs)"
-				sts5="\033[1;32mâ—‰ "
+				sts5="\033[1;32m‹ "
 			} || {
 				sts5="\033[1;31mâ—‹ "
 			}
 
 			[[ "$(netstat -tlpn | grep 'python' | wc -l)" != '0' ]] && {
 				echo -e "\033[1;32mSERVICO: \033[1;33mPROXY SOCKS \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'python' | awk {'print $4'} | cut -d: -f2 | xargs)"
-				sts4="\033[1;32mâ—‰ "
+				sts4="\033[1;32m‹ "
 			} || {
 				sts4="\033[1;31mâ—‹ "
 			}
 			[[ -e "/etc/stunnel/stunnel.conf" ]] && {
 				echo -e "\033[1;32mSERVICO: \033[1;33mSSL TUNNEL \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'stunnel' | awk {'print $4'} | cut -d: -f2 | xargs)"
-				sts3="\033[1;32mâ—‰ "
+				sts3="\033[1;32m‹ "
 			} || {
 				sts3="\033[1;31mâ—‹ "
 			}
 			[[ "$(netstat -tlpn | grep 'dropbear' | wc -l)" != '0' ]] && {
 				echo -e "\033[1;32mSERVICO: \033[1;33mDROPBEAR \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'dropbear' | awk -F ":" {'print $4'} | xargs)"
-				sts2="\033[1;32mâ—‰ "
+				sts2="\033[1;32m‹ "
 			} || {
-				sts2="\033[1;31mâ—‹ "
+				sts2="\033[1;31m‹ "
 			}
 			[[ "$(netstat -tlpn | grep 'squid' | wc -l)" != '0' ]] && {
 				echo -e "\033[1;32mSERVICO: \033[1;33mSQUID \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'squid' | awk -F ":" {'print $4'} | xargs)"
-				sts1="\033[1;32mâ—‰ "
+				sts1="\033[1;32m‹ "
 			} || {
 				sts1="\033[1;31mâ—‹ "
 			}
 			echo -e "\033[0;34mâ”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\033[0m"
 			echo ""
-			echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37mâ€¢ \033[1;33mOPENSSH $sts6\033[1;31m
-[\033[1;36m02\033[1;31m] \033[1;37mâ€¢ \033[1;33mSQUID PROXY $sts1\033[1;31m
-[\033[1;36m03\033[1;31m] \033[1;37mâ€¢ \033[1;33mDROPBEAR $sts2\033[1;31m
-[\033[1;36m04\033[1;31m] \033[1;37mâ€¢ \033[1;33mOPENVPN $sts5\033[1;31m
-[\033[1;36m05\033[1;31m] \033[1;37mâ€¢ \033[1;33mPROXY SOCKS $sts4\033[1;31m
-[\033[1;36m06\033[1;31m] \033[1;37mâ€¢ \033[1;33mSSL TUNNEL $sts3\033[1;31m
-[\033[1;36m07\033[1;31m] \033[1;37mâ€¢ \033[1;33mVOLTAR \033[1;32m<\033[1;33m<\033[1;31m< \033[1;31m
-[\033[1;36m00\033[1;31m] \033[1;37mâ€¢ \033[1;33mSAIR \033[1;32m<\033[1;33m<\033[1;31m< \033[0m"
+			echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m \033[1;33mOPENSSH $sts6\033[1;31m
+[\033[1;36m02\033[1;31m] \033[1;37m \033[1;33mSQUID PROXY $sts1\033[1;31m
+[\033[1;36m03\033[1;31m] \033[1;37m \033[1;33mDROPBEAR $sts2\033[1;31m
+[\033[1;36m04\033[1;31m] \033[1;37m \033[1;33mOPENVPN $sts5\033[1;31m
+[\033[1;36m05\033[1;31m] \033[1;37m \033[1;33mPROXY SOCKS $sts4\033[1;31m
+[\033[1;36m06\033[1;31m] \033[1;37m \033[1;33mSSL TUNNEL $sts3\033[1;31m
+[\033[1;36m07\033[1;31m] \033[1;37m \033[1;33mVOLTAR \033[1;32m<\033[1;33m<\033[1;31m< \033[1;31m
+[\033[1;36m00\033[1;31m] \033[1;37m \033[1;33mSAIR \033[1;32m<\033[1;33m<\033[1;31m< \033[0m"
 			echo ""
 			echo -e "\033[0;34mâ”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\033[0m"
 			echo ""
