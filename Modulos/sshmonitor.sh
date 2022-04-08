@@ -35,7 +35,7 @@ do
     fi
 done
 }
-echo -e "\E[44;1;37m Usuario         Status       ConexÃ£o     Tempo   \E[0m"
+echo -e "\E[44;1;37m Usuario         Status       Conexao     Tempo   \E[0m"
 echo ""
 echo ""
  while read usline
@@ -99,7 +99,7 @@ echo ""
            echo -ne "\033[1;33m"
            printf '%-17s%-14s%-10s%s\n' " $user"      "$status" "$conex/$s2ssh" "$timerr"
         fi
-        echo -e "\033[0;34mâ”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”\033[0m"
+        echo -e "\033[0;34m=================================================================================\033[0m"
     done < "$database"
 fi
 #exit
