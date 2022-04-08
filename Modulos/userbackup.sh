@@ -108,7 +108,7 @@ backbot=$1
 			sleep 2s
 			echo ""
 			echo -e "\033[1;33mO Arquivo \033[1;32mbackup.vps"
-			echo -e "\033[1;33mfoi criado com sucesso no diretÃ³rio \033[1;31m/root\033[0m"
+			echo -e "\033[1;33mfoi criado com sucesso no diretorio \033[1;31m/root\033[0m"
 			echo ""
 		fi
 	fi
@@ -124,13 +124,13 @@ backbot=$1
 			tar -xvf backup.vps
 			rm /backup.vps
 			echo ""
-			echo -e "\033[1;36mUsuÃ¡rios e\033[1;36m senhas importados com sucesso.\033[0m"
+			echo -e "\033[1;36mUsuarios e\033[1;36m senhas importados com sucesso.\033[0m"
 			echo ""
 			exit
 		else
 			echo ""
-			echo -e "\033[1;33mO arquivo \033[1;32mbackup.vps \033[1;33mnÃ£o foi encontrado!\033[0m"
-			echo -e "\033[1;33mCeritifique-se que ele esteja localizado no diretÃ³rio /root/ com o nome \033[1;32mbackup.vps\033[0m"
+			echo -e "\033[1;33mO arquivo \033[1;32mbackup.vps \033[1;33mnao foi encontrado!\033[0m"
+			echo -e "\033[1;33mCeritifique-se que ele esteja localizado no diretorio /root/ com o nome \033[1;32mbackup.vps\033[0m"
 			echo ""
 			exit
 		fi
