@@ -1,10 +1,10 @@
 #!/bin/bash
 # OpenVPN instalador para Debian, Ubuntu e CentOS@phoenix1203
 
-# Esse script irÃ¡ trabalhar no Debian, Ubuntu, CentOS e provavelmente outros distros # das mesmas famÃ­lias, embora nenhum suporte Ã© oferecido para eles.
-# mas irÃ¡ funcionar se vocÃª simplesmente deseja configurar uma VPN no 
-# seu Debian/Ubuntu/CentOS. Ele foi projetado para ser tÃ£o
-# discreto e universal quanto possÃ­vel.@phoenix1203
+# Esse script ira trabalhar no Debian, Ubuntu, CentOS e provavelmente outros distros # das mesmas familias, embora nenhum suporte seja oferecido para eles.
+# mas ira funcionar se voce simplesmente deseja configurar uma VPN no 
+# seu Debian/Ubuntu/CentOS. Ele foi projetado para ser tao
+# discreto e universal quanto possivel.@phoenix1203
 
 
 
@@ -70,15 +70,15 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 	while :
 	do
 	clear
-		echo "OpenVPN jÃ¡ estÃ¡ instalado"
+		echo "OpenVPN ja esta instalado"
 		echo "Script By @phoenix1203"
 		echo ""
-		echo "O que vocÃª deseja fazer?"
-		echo "   1) Adicionar novo usuÃ¡rio"
-		echo "   2) Remover um usuÃ¡rio"
+		echo "O que voce deseja fazer?"
+		echo "   1) Adicionar novo usuario"
+		echo "   2) Remover um usuario"
 		echo "   3) Remover OpenVPN"
 		echo "   4) voltar"
-		read -p "Selecione a opÃ§Ã£o [1-4]: " option
+		read -p "Selecione a opcao [1-4]: " option
 		case $option in
 			1) 
 			echo ""
@@ -99,7 +99,7 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 			NUMBEROFCLIENTS=$(tail -n +2 /etc/openvpn/easy-rsa/pki/index.txt | grep -c "^V")
 			if [[ "$NUMBEROFCLIENTS" = '0' ]]; then
 				echo ""
-				echo "VocÃª nÃ£o tem usuarios existentes!"
+				echo "VocÃª nÃa tem usuarios existentes!"
 				exit 6
 			fi
 			echo ""
@@ -127,7 +127,7 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 			;;
 			3) 
 			echo ""
-			read -p "VocÃª deseja remover Essa porra de OpenVPN? [y/n]: " -e -i n REMOVE
+			read -p "Voce deseja remover o OpenVPN? [y/n]: " -e -i n REMOVE
 			if [[ "$REMOVE" = 'y' ]]; then
 				PORT=$(grep '^port ' /etc/openvpn/server.conf | cut -d " " -f 2)
 				PROTOCOL=$(grep '^proto ' /etc/openvpn/server.conf | cut -d " " -f 2)
@@ -164,10 +164,10 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 				rm -rf /etc/openvpn
 				rm -rf /usr/share/doc/openvpn*
 				echo ""
-				echo "Essa porra foi removida!"
+				echo "OpenVPN foi removidO!"
 			else
 				echo ""
-				echo "RemoÃ§Ã£o abordada!"
+				echo "Remocao abordada!"
 			fi
 			ovpn18
 			;;
@@ -176,17 +176,17 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 	done
 else
 	clear
-	echo 'Esse OpenVPN aqui ta uma Porra vai dando enter ai seu fela.'
+	echo 'Va teclando enter ate finanlizar.'
 	echo ""
-	# OpenVPN instalador e criaÃ§Ã£o do primeiro usuario@phoenix1203
-	echo "Responda as perguntas para iniciar a instalaÃ§Ã£o"
+	# OpenVPN instalador e criador do primeiro usuario@phoenix1203
+	echo "Responda as perguntas para iniciar a instalacao"
 	echo "Responda corretamente"
 	echo ""
-	echo "Primeiro precisaremos do ip de sua maquina,este ip estÃ¡ correto ?"
+	echo "Primeiro precisaremos do ip de sua maquina,este ip esta correto ?"
 	echo "listening to."
 	read -p "IP address: " -e -i $IP IP
 	echo ""
-	echo "Qual protocolo vocÃª deseja para as conexÃµes OPENVPN ?"
+	echo "Qual protocolo voce deseja para as conexoes OPENVPN ?"
 	echo "   1) UDP"
 	echo "   2) TCP (Recomendado)"
 	read -p "Protocol [1-2]: " -e -i 2 PROTOCOL
@@ -199,10 +199,10 @@ else
 		;;
 	esac
 	echo ""
-	echo "Qual porta vocÃª deseja usar, melhor deixar essa ai..."
+	echo "Qual porta voce deseja usar, melhor deixar essa ai..."
 	read -p "Port: " -e -i 1194 PORT
 	echo ""
-	echo "Qual DNS vocÃª deseja usar ?"
+	echo "Qual DNS voce deseja usar ?"
 	echo "   1) Sistema(Recomendado)"
 	echo "   2) Google"
 	echo "   3) OpenDNS"
@@ -215,7 +215,7 @@ else
 	echo "Use somente o nome,sem caracteres especiais"
 	read -p "Client name: " -e -i client CLIENT
 	echo ""
-	echo "Okay, vocÃª estÃ¡ pronto para executar o openvpn "
+	echo "Okay, voce estÃ¡ pronto para executar o openvpn "
 	read -n1 -r -p "Pressione uma tecla para continuar..."
 	if [[ "$OS" = 'debian' ]]; then
 		apt-get upgrade
